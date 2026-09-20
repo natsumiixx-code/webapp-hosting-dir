@@ -1,0 +1,1349 @@
+
+<!-- saved from url=(0012)about:srcdoc -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap');
+
+/* ═══════════════════════════════
+   THEME UWIN99TH (Pink-Gold Edition)
+═══════════════════════════════ */
+.cw, #dp-overlay {
+  --c-blue-1:#e0157a;
+  --c-blue-2:#ff2d95;
+  --c-blue-3:#ff9bd0;
+  --c-cyan:#ffc93c;
+  --c-navy-1:#2a0a1f;
+  --c-navy-2:#170512;
+  --c-navy-3:#0a0208;
+  --c-txt:#ffeef5;
+  --c-muted:#c99cb5;
+  --c-dim:#8a5570;
+  --c-line:rgba(255,255,255,0.08);
+  --c-line-2:rgba(255,45,149,0.32);
+}
+.cw {
+  display:flex; justify-content:center; padding:32px 16px; background:transparent; font-family:'Kanit',sans-serif;
+}
+.cw * { box-sizing:border-box; }
+
+@property --border-angle{
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+.cc {
+  position:relative; width:100%; max-width:65%;
+  border-radius:28px; padding:1.5px;
+  background: conic-gradient(from var(--border-angle), #3a0a26 0%, var(--c-blue-1) 16%, #fff0c2 24%, var(--c-blue-1) 32%, #3a0a26 55%, #3a0a26 100%);
+  box-shadow: 0 22px 55px -12px rgba(224,21,122,0.45), 0 0 0 1px rgba(255,155,208,.06);
+  animation: ccBorderChase 4.5s linear infinite;
+}
+@keyframes ccBorderChase{ to{ --border-angle: 360deg; } }
+@media (prefers-reduced-motion: reduce){ .cc{ animation:none; } }
+.cc-inner {
+  position:relative;
+  background:
+    radial-gradient(ellipse at 28% -12%, #4a1030 0%, transparent 58%),
+    radial-gradient(ellipse at 90% 110%, #3d0a28 0%, transparent 55%),
+    linear-gradient(165deg, var(--c-navy-1) 0%, var(--c-navy-2) 55%, var(--c-navy-3) 100%);
+  border-radius:26px; overflow:hidden;
+}
+.cc-inner::before{
+  content:''; position:absolute; inset:0; pointer-events:none; opacity:.35;
+  background-image:
+    linear-gradient(rgba(255,155,208,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,155,208,.055) 1px, transparent 1px);
+  background-size:34px 34px;
+  mask-image:radial-gradient(ellipse at 50% 0%, #000 10%, transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 0%, #000 10%, transparent 78%);
+}
+.cc-blob { position:absolute; border-radius:50%; filter:blur(6px); opacity:0.38; pointer-events:none; }
+.cc-blob.b1 { width:160px; height:160px; top:170px; right:-52px; background:radial-gradient(circle,var(--c-blue-2),transparent 70%); }
+.cc-blob.b2 { width:120px; height:120px; bottom:-42px; left:-38px; background:radial-gradient(circle,var(--c-cyan),transparent 70%); }
+
+/* ---------- keyframes ที่ใช้ร่วมกัน (intro เต็มจอ + แถบแบรนด์ในการ์ด) ---------- */
+@keyframes bwGrid{ from{ background-position:0 0, 0 0; } to{ background-position:0 60px, 60px 0; } }
+@keyframes bwBeam{ 0%,100%{opacity:.35} 50%{opacity:.8} }
+@keyframes bwRise{ 0%{ transform:translateY(0) scale(.6); opacity:0; } 18%{opacity:1;} 100%{ transform:translateY(-40vh) scale(1); opacity:0; } }
+@keyframes bwPulseDot{ 0%,100%{opacity:.5} 50%{opacity:1} }
+@keyframes bwShimmer{ to{ background-position:220% center; } }
+@keyframes bwFadeUp{ from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:translateY(0);} }
+@keyframes bwLogoPop{ from{ opacity:0; transform:scale(.6) translateY(8px); } to{ opacity:1; transform:scale(1) translateY(0); } }
+
+.bw-live{
+  display:inline-flex; align-items:center; gap:5px;
+  padding:3px 10px; border-radius:99px; background:rgba(0,0,0,.22); border:1px solid rgba(255,255,255,.2);
+  font-size:9px; font-weight:600; letter-spacing:1px; color:#4ade80;
+}
+.bw-live i{ width:5px; height:5px; border-radius:50%; background:#4ade80; animation:bwPulseDot 1.5s ease-in-out infinite; }
+
+/* โลโก้แบบเต็ม ไม่มีกล่อง/พื้นหลัง ใช้ drop-shadow แทน */
+.bw-logo-fb{ font-weight:800; color:#fff; letter-spacing:.5px; display:none; }
+
+/* ---------- แถบแบรนด์บนสุดของการ์ด (สเต็ป 2: หน้ากรอกโค้ด) — โปร่งใส ให้วอลล์ภาพเกมของการ์ดโชว์ผ่าน ---------- */
+.bw-strip{ display:flex; align-items:center; justify-content:center; position:relative; z-index:1; padding:30px 24px 26px; min-height:130px; }
+.bw-strip::after{
+  content:''; position:absolute; left:24px; right:24px; bottom:0; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,155,208,.5), transparent);
+}
+.bw-strip-logo{ height:52px; width:auto; max-width:220px; filter:drop-shadow(0 4px 16px rgba(0,0,0,.75)) drop-shadow(0 0 22px rgba(0,0,0,.5)); }
+.bw-strip .bw-logo-fb{ font-size:22px; }
+.bw-strip .bw-live{ position:absolute; right:24px; top:24px; }
+
+/* ---------- วอลล์ภาพเกม PG Soft แนวเฉียง เลื่อนพื้นหลัง (ใช้ร่วมกันทั้ง intro และการ์ด) ---------- */
+.game-wall{ position:absolute; overflow:hidden; pointer-events:none; }
+.gw-col{ position:absolute; top:0; display:flex; flex-direction:column; gap:9px; will-change:transform; }
+.gw-col img{ width:100%; display:block; border-radius:9px; aspect-ratio:3/4; object-fit:cover; box-shadow:0 4px 14px rgba(0,0,0,.35); }
+@keyframes gwUp{ from{ transform:translateY(0); } to{ transform:translateY(-50%); } }
+@keyframes gwDown{ from{ transform:translateY(-50%); } to{ transform:translateY(0); } }
+
+/* วอลล์พื้นหลังของ "ทั้งการ์ด" (ครอบตั้งแต่แถบแบรนด์ยาวลงมาถึงโซนสถิติ/กรอกโค้ด/feed แล้วค่อยๆจางลงกลืนกับพื้นการ์ด) */
+.cc-bg-wall{
+  top:0; left:-32%; right:-32%; height:1680px;
+  transform:rotate(-8deg) scale(1.3); transform-origin:top center;
+  opacity:.92;
+}
+.cc-bg-wall .gw-col{ width:25%; }
+.cc-bg-wall .gw-col:nth-child(1){ left:0%;  animation:gwUp 33s linear infinite; }
+.cc-bg-wall .gw-col:nth-child(2){ left:25%; animation:gwDown 41s linear infinite; }
+.cc-bg-wall .gw-col:nth-child(3){ left:50%; animation:gwUp 28s linear infinite; }
+.cc-bg-wall .gw-col:nth-child(4){ left:75%; animation:gwDown 36s linear infinite; }
+.cc-bg-wall-overlay{
+  position:absolute; top:0; left:0; right:0; height:1680px; pointer-events:none;
+  background:
+    radial-gradient(ellipse 240px 160px at 50% 70px, rgba(18,3,12,.5), transparent 72%),
+    linear-gradient(180deg,
+      rgba(24,6,18,.62) 0%, rgba(24,6,18,.72) 15%, rgba(24,6,18,.85) 32%,
+      rgba(24,6,18,.94) 50%, var(--c-navy-3) 68%, var(--c-navy-3) 100%);
+}
+@media (prefers-reduced-motion: reduce){ .cc-bg-wall .gw-col{ animation:none; } }
+
+/* ---------- intro: วิดีโอเปิดตัวเต็มจอ เล่นครั้งเดียวตอนเข้าเพจ (สเต็ป 1) ---------- */
+.bw-intro{
+  position:fixed; inset:0; z-index:100000; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; overflow:hidden; text-align:center;
+  padding:32px 24px; font-family:'Kanit',sans-serif;
+  background:radial-gradient(circle at 50% 28%, #e0157a 0%, #6b0f42 46%, #0a0208 100%);
+  transition:opacity .5s ease, transform .5s ease;
+}
+.bw-intro.hide{ opacity:0; transform:scale(1.05); pointer-events:none; }
+
+.bw-intro-wall{
+  inset:-18% -34%;
+  transform:rotate(-9deg) scale(1.3); transform-origin:center;
+  opacity:.95;
+}
+.bw-intro-wall .gw-col{ width:20%; }
+.bw-intro-wall .gw-col:nth-child(1){ left:0%;  animation:gwUp 31s linear infinite; }
+.bw-intro-wall .gw-col:nth-child(2){ left:20%; animation:gwDown 39s linear infinite; }
+.bw-intro-wall .gw-col:nth-child(3){ left:40%; animation:gwUp 26s linear infinite; }
+.bw-intro-wall .gw-col:nth-child(4){ left:60%; animation:gwDown 35s linear infinite; }
+.bw-intro-wall .gw-col:nth-child(5){ left:80%; animation:gwUp 29s linear infinite; }
+.bw-intro-wall-overlay{
+  position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 280px 220px at 50% 44%, rgba(18,3,12,.4), transparent 72%),
+    linear-gradient(180deg, rgba(24,6,18,.38) 0%, rgba(24,6,18,.5) 35%, rgba(24,6,18,.75) 72%, rgba(18,3,12,.88) 100%);
+}
+
+.bw-intro-grid{
+  position:absolute; left:-50%; right:-50%; bottom:-15%; height:130%;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.1) 0 1px, transparent 1px 34px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.1) 0 1px, transparent 1px 34px);
+  transform: perspective(320px) rotateX(64deg); transform-origin: bottom;
+  animation: bwGrid 3s linear infinite; opacity:.3;
+  mask-image: linear-gradient(180deg, transparent, black 55%);
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 55%);
+}
+.bw-intro-beam{
+  position:absolute; top:-25%; left:50%; width:140%; height:90%; transform:translateX(-50%);
+  background: conic-gradient(from 180deg at 50% 0%, transparent 42%, rgba(255,255,255,0.16) 50%, transparent 58%);
+  filter:blur(6px); animation: bwBeam 4s ease-in-out infinite; pointer-events:none;
+}
+.bw-intro-vignette{
+  position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(circle at 50% 42%, transparent 38%, rgba(20,4,14,.55) 100%);
+}
+.bw-intro-scan{
+  position:absolute; inset:0; pointer-events:none; mix-blend-mode:overlay;
+  background: repeating-linear-gradient(180deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 3px);
+}
+.bw-intro-particles span{
+  position:absolute; bottom:-8px; width:4px; height:4px; border-radius:50%;
+  background:#ffd98a; box-shadow:0 0 8px 2px rgba(255,217,138,.8); opacity:0;
+  animation:bwRise 3.6s ease-in infinite;
+}
+.bw-intro-particles span:nth-child(1){ left:10%; animation-delay:.1s; }
+.bw-intro-particles span:nth-child(2){ left:26%; animation-delay:1.2s; }
+.bw-intro-particles span:nth-child(3){ left:42%; animation-delay:.5s; }
+.bw-intro-particles span:nth-child(4){ left:58%; animation-delay:1.7s; }
+.bw-intro-particles span:nth-child(5){ left:74%; animation-delay:.9s; }
+.bw-intro-particles span:nth-child(6){ left:90%; animation-delay:2.1s; }
+
+.bw-intro-in{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; max-width:340px; }
+.bw-intro-in .bw-live{ margin-bottom:18px; opacity:0; animation:bwFadeUp .5s ease-out .1s forwards; }
+.bw-intro-logo{
+  height:110px; width:auto; max-width:240px; margin-bottom:16px;
+  filter:drop-shadow(0 14px 32px rgba(0,0,0,.5)) drop-shadow(0 0 44px rgba(255,214,160,.5));
+  opacity:0; animation:bwLogoPop .6s cubic-bezier(.34,1.56,.64,1) .25s forwards;
+}
+.bw-intro-in .bw-logo-fb{ font-size:34px; margin-bottom:16px; }
+.bw-intro-headline{
+  font-size:20px; font-weight:700; margin-bottom:8px;
+  background:linear-gradient(92deg,#ffffff 0%,#ffd9ee 45%,#ffffff 100%);
+  background-size:220% auto; -webkit-background-clip:text; background-clip:text; color:transparent;
+  opacity:0; animation:bwFadeUp .5s ease-out .5s forwards, bwShimmer 5s linear 1s infinite;
+}
+.bw-intro-amount{ display:flex; align-items:baseline; justify-content:center; gap:8px; margin-bottom:6px;
+  opacity:0; animation:bwFadeUp .5s ease-out .75s forwards; }
+.bw-intro-amount span{
+  font-size:62px; font-weight:800; line-height:1;
+  background:linear-gradient(180deg,#fff8e0,#ffc93c); -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow:0 0 28px rgba(255,201,60,.55);
+}
+.bw-intro-amount i{ font-style:normal; font-size:16px; font-weight:600; color:#ffb3d9; }
+.bw-intro-tagline{ font-size:13px; font-weight:500; color:#ffb3d9; margin-bottom:16px; opacity:0; animation:bwFadeUp .5s ease-out 1s forwards; }
+.bw-intro-chips{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px; opacity:0; animation:bwFadeUp .5s ease-out 1.25s forwards; }
+.bw-intro-chip{
+  display:inline-flex; align-items:center; gap:5px; padding:6px 13px; border-radius:99px;
+  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.24);
+  font-size:10.5px; font-weight:600; color:#ffeef5; white-space:nowrap;
+}
+.bw-intro-chip svg{ width:11px; height:11px; color:#7fd8a0; flex-shrink:0; }
+
+/* กรอบแสงไล่วนรอบจอ (ใช้ --border-angle ตัวเดียวกับกรอบการ์ด ให้ภาษาภาพเดียวกัน) */
+.bw-intro-frame{
+  position:absolute; inset:16px; border-radius:26px; pointer-events:none; z-index:1;
+  padding:2px; box-sizing:border-box;
+  background:conic-gradient(from var(--border-angle), transparent 0%, rgba(255,214,160,.95) 8%, transparent 22%, transparent 100%);
+  animation: ccBorderChase 4.5s linear infinite;
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+@media (prefers-reduced-motion: reduce){ .bw-intro-frame{ animation:none; } }
+
+/* กรอบมุมแบบกล้อง/มอนิเตอร์ */
+.bw-intro-corner{ position:absolute; width:24px; height:24px; z-index:1; opacity:0; animation:bwFadeUp .5s ease-out .15s forwards; }
+.bw-intro-corner.tl{ top:22px; left:22px; border-top:2px solid rgba(255,255,255,.55); border-left:2px solid rgba(255,255,255,.55); border-radius:8px 0 0 0; }
+.bw-intro-corner.tr{ top:22px; right:22px; border-top:2px solid rgba(255,255,255,.55); border-right:2px solid rgba(255,255,255,.55); border-radius:0 8px 0 0; }
+.bw-intro-corner.bl{ bottom:22px; left:22px; border-bottom:2px solid rgba(255,255,255,.55); border-left:2px solid rgba(255,255,255,.55); border-radius:0 0 0 8px; }
+.bw-intro-corner.br{ bottom:22px; right:22px; border-bottom:2px solid rgba(255,255,255,.55); border-right:2px solid rgba(255,255,255,.55); border-radius:0 0 8px 0; }
+
+/* progress bar นับถอยหลังจริง ต้องตรงกับเวลา dismiss ใน JS (3.6s) */
+.bw-intro-progress{
+  position:absolute; left:26px; right:26px; bottom:44px; height:3px; border-radius:3px; z-index:1;
+  background:rgba(255,255,255,.16); overflow:hidden;
+  opacity:0; animation:bwFadeUp .4s ease-out .2s forwards;
+}
+.bw-intro-progress-fill{
+  height:100%; width:100%; background:linear-gradient(90deg, var(--c-blue-3), #fff);
+  transform-origin:left; transform:scaleX(0);
+  animation: bwIntroProgress 3.6s linear forwards;
+}
+@keyframes bwIntroProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+@media (prefers-reduced-motion: reduce){ .bw-intro-progress-fill{ animation:none; transform:scaleX(1); } }
+
+.bw-intro-skip{
+  position:absolute; left:0; right:0; bottom:20px; text-align:center; z-index:1;
+  font-size:10.5px; color:rgba(255,255,255,.55); opacity:0; animation:bwFadeUp .5s ease-out 1.7s forwards;
+}
+@media (max-width:380px){ .bw-intro-logo{ height:90px; } .bw-intro-amount span{ font-size:50px; } .bw-intro-headline{ font-size:18px; } }
+@media (prefers-reduced-motion: reduce){
+  .bw-intro-grid,.bw-intro-beam,.bw-intro-particles span,.bw-intro-headline,.bw-intro-wall .gw-col{ animation:none; }
+  .bw-intro-in .bw-live,.bw-intro-logo,.bw-intro-headline,.bw-intro-amount,.bw-intro-tagline,.bw-intro-chips,.bw-intro-skip,.bw-intro-corner,.bw-intro-progress{ opacity:1; animation:none; transform:none; }
+}
+
+/* ---------- body wrapper (padding เดิมของการ์ด) ---------- */
+.cc-body{ position:relative; z-index:1; padding:8px 24px 24px; }
+
+/* ---------- stat tiles: การ์ดเดี่ยว 2 ใบ ไอคอนทองมุมขวาบน ---------- */
+.cc-stats{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px; }
+.cc-stat{
+  position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:flex-start; gap:7px;
+  background:linear-gradient(150deg, rgba(40,9,26,.95), rgba(20,4,14,.95));
+  border:1.5px solid rgba(255,201,60,.3); border-radius:14px; padding:12px 13px;
+}
+.cc-stat::before{ content:''; position:absolute; top:-22px; right:-22px; width:64px; height:64px; border-radius:50%; background:radial-gradient(circle, rgba(255,201,60,.2), transparent 72%); }
+.cc-stat-ic{
+  width:28px; height:28px; border-radius:9px; flex-shrink:0;
+  background:linear-gradient(135deg,#ffd75e,#ff8a00);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 5px 12px -4px rgba(255,150,0,.6);
+}
+.cc-stat-ic svg{ width:14px; height:14px; color:#2a1500; }
+.cc-stat-tx .k{ font-size:8.5px; font-weight:600; letter-spacing:.6px; text-transform:uppercase; color:var(--c-dim); line-height:1.2; }
+.cc-stat-tx .v{ font-size:18px; font-weight:800; color:#fff; line-height:1.2; margin-top:2px; }
+.cc-stat-tx .v i.u{ font-style:normal; font-size:9.5px; font-weight:600; color:var(--c-muted); margin-left:2px; }
+
+/* ---------- code field: ทรงตั๋วรับรางวัล เส้นประทอง ---------- */
+.cc-field-label { display:flex; align-items:center; justify-content:center; gap:6px; font-size:11px; font-weight:600; letter-spacing:1.5px; color:#ffc93c; text-transform:uppercase; margin-bottom:10px; text-align:center; }
+.cc-input {
+  width:100%; background:rgba(22,5,15,.95); border:2px dashed rgba(255,201,60,.5); border-radius:14px;
+  padding:19px 18px; font-size:20px; font-weight:700; letter-spacing:4px; text-align:center; text-transform:uppercase;
+  font-family:'JetBrains Mono','Kanit',monospace; color:#fff; outline:none;
+  transition:border-color .2s,border-style .2s,box-shadow .2s,transform .15s,background .2s;
+}
+.cc-input::placeholder{ color:#7a4560; letter-spacing:3px; font-weight:600; }
+.cc-input:focus{ border-style:solid; border-color:#ffc93c; background:rgba(58,10,38,.95); box-shadow:0 0 0 5px rgba(255,201,60,.16); transform:translateY(-1px); }
+.cc-input.invalid{ border-color:#ff5252; box-shadow:0 0 0 5px rgba(255,82,82,.14); }
+.cc-error { font-size:11.5px; color:#ff7a94; font-weight:500; margin:9px 0 0; text-align:center; min-height:16px; }
+
+/* ---------- ปุ่ม: ทรงอาเขต 3 มิติ ทอง ---------- */
+.cc-btn { width:100%; padding:16px; border-radius:16px; border:2px solid rgba(255,255,255,.35); cursor:pointer; font-family:'Kanit',sans-serif; font-size:16px; font-weight:800;
+  letter-spacing:.4px; color:#2a1500; display:flex; align-items:center; justify-content:center; gap:8px;
+  background:linear-gradient(180deg,#ffe07a,#ffb020 55%,#ff8a00);
+  box-shadow:0 6px 0 #a85c00, 0 12px 22px -6px rgba(0,0,0,.55);
+  position:relative; overflow:hidden; z-index:1; margin-top:16px;
+  transition:transform .12s,filter .15s,box-shadow .12s,opacity .2s; }
+.cc-btn:disabled{ opacity:.55; cursor:not-allowed; box-shadow:0 6px 0 rgba(168,92,0,.4); filter:grayscale(.35); }
+.cc-btn:not(:disabled){ animation: ccBtnPulse 2.2s ease-in-out infinite; }
+@keyframes ccBtnPulse{
+  0%,100%{ box-shadow:0 6px 0 #a85c00, 0 12px 22px -6px rgba(0,0,0,.55), 0 0 0 0 rgba(255,201,60,.5); }
+  50%{ box-shadow:0 6px 0 #a85c00, 0 12px 22px -6px rgba(0,0,0,.55), 0 0 0 9px rgba(255,201,60,0); }
+}
+@media (prefers-reduced-motion: reduce){ .cc-btn:not(:disabled){ animation:none; } }
+.cc-btn:not(:disabled):hover{ filter:brightness(1.06); }
+.cc-btn:not(:disabled):active{ transform:translateY(5px); box-shadow:0 1px 0 #a85c00, 0 4px 10px -4px rgba(0,0,0,.5); }
+.cc-btn::after{ content:''; position:absolute; top:0; left:-100%; width:55%; height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent); transform:skewX(-20deg); animation:ccSheen 2.6s infinite; }
+.cc-btn:disabled::after{ display:none; }
+@keyframes ccSheen{ 0%{left:-100%} 60%,100%{left:160%} }
+
+.cc-footer { display:flex; align-items:center; justify-content:center; gap:6px; margin-top:14px; color:var(--c-dim); font-size:10.5px; }
+
+/* ---------- trust: แถบเดียว คั่นด้วยเส้น ---------- */
+.cc-trust{
+  display:flex; align-items:center; margin-top:14px;
+  background:rgba(30,7,21,.75); border:1px solid rgba(255,201,60,.22); border-radius:14px; padding:11px 4px;
+}
+.cc-trust-i{
+  flex:1; position:relative; display:flex; flex-direction:column; align-items:center; gap:5px; text-align:center;
+  background:none; border:none; border-radius:0; padding:2px 4px; transition:transform .2s;
+}
+.cc-trust-i:not(:last-child)::after{ content:''; position:absolute; top:50%; right:0; transform:translateY(-50%); width:1px; height:26px; background:rgba(255,201,60,.2); }
+.cc-trust-i:hover{ transform:translateY(-2px); }
+.cc-trust-i svg{ width:16px; height:16px; color:#ffc93c; }
+.cc-trust-i b{ font-size:9.5px; font-weight:700; color:#ffeef5; line-height:1.2; }
+.cc-trust-i i{ font-style:normal; font-size:8.5px; color:var(--c-dim); line-height:1.2; }
+
+/* ---------- recent claims feed ---------- */
+.cf { margin-top:14px; background:rgba(24,6,18,.9); border:1px solid rgba(255,155,208,.2); border-radius:18px; padding:14px; }
+.cf-head { display:flex; align-items:center; gap:9px; margin-bottom:11px; }
+.cf-icon { width:28px; height:28px; background:rgba(255,45,149,.16); border:1px solid rgba(255,45,149,.38); border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.cf-icon svg{ width:14px; height:14px; color:var(--c-blue-2); }
+.cf-ttl{ font-size:12.5px; font-weight:800; color:#ffeef5; }
+.cf-sub{ font-size:9.5px; color:var(--c-dim); margin-top:1px; }
+.cf-live{ margin-left:auto; display:flex; align-items:center; gap:4px; background:rgba(16,185,129,.12); border:1px solid rgba(16,185,129,.32); border-radius:20px; padding:3px 8px; }
+.cf-dot{ width:6px; height:6px; background:#10b981; border-radius:50%; animation:cfLd 1.5s ease-in-out infinite; }
+@keyframes cfLd{ 0%,100%{opacity:.6} 50%{opacity:1} }
+.cf-ltxt{ font-size:9px; font-weight:900; color:#10b981; letter-spacing:1px; }
+.cf-list{ display:flex; flex-direction:row; gap:8px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:2px; scrollbar-width:none; }
+.cf-list::-webkit-scrollbar{ display:none; }
+.cf-item{ flex:0 0 auto; width:208px; scroll-snap-align:start; display:flex; align-items:center; gap:9px; padding:8px 10px; background:rgba(40,9,26,.78); border:1px solid rgba(255,155,208,.14); border-radius:11px; transition:border-color .3s,background .3s; }
+.cf-item.new{ border-color:rgba(255,45,149,.5); background:rgba(150,15,80,.55); animation:cfIn .4s cubic-bezier(.34,1.56,.64,1); }
+@keyframes cfIn{ 0%{transform:translateY(-10px) scale(.96);opacity:0} 100%{transform:translateY(0) scale(1);opacity:1} }
+.cf-av{ width:30px; height:30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 3px 8px rgba(0,0,0,.4); overflow:hidden; }
+.cf-av svg{ width:16px; height:16px; color:#fff; }
+.cf-av img{ width:100%; height:100%; object-fit:cover; display:block; }
+.cf-i{ flex:1; min-width:0; }
+.cf-phone{ font-family:'JetBrains Mono',monospace; font-weight:700; color:#fff5f9; font-size:11.5px; }
+.cf-act{ font-size:10px; color:var(--c-muted); margin-top:1px; }
+.cf-r{ display:flex; flex-direction:column; align-items:flex-end; gap:3px; flex-shrink:0; }
+.cf-time{ color:var(--c-dim); font-size:9.5px; font-weight:600; white-space:nowrap; }
+.cf-badge{ font-size:8.5px; font-weight:800; padding:2px 7px; border-radius:20px; background:rgba(16,185,129,.14); color:#10b981; border:1px solid rgba(16,185,129,.28); }
+
+/* ---------- เกมทดลองเล่น: แสดงตลอด ไม่ต้องกดเปิด (ดีไซน์ใหม่: การ์ดโปสเตอร์กริด) ---------- */
+.dg-section{ margin-top:14px; background:rgba(22,5,15,.95); border:1.5px solid rgba(255,201,60,.28); border-radius:18px; overflow:hidden; }
+.dg-head{
+  width:100%; display:flex; align-items:center; gap:11px; padding:13px 14px;
+  font-family:'Kanit',sans-serif; text-align:left;
+  background:linear-gradient(90deg, rgba(255,201,60,.1), transparent);
+}
+.dg-toggle-ic{ width:32px; height:32px; border-radius:10px; flex-shrink:0; background:linear-gradient(135deg,#ffd75e,#ff8a00); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px -3px rgba(255,150,0,.6); }
+.dg-toggle-ic svg{ width:16px; height:16px; color:#2a1500; }
+.dg-toggle-txt{ flex:1; min-width:0; }
+.dg-toggle-txt b{ display:block; font-size:12.5px; font-weight:800; color:#ffeef5; }
+.dg-toggle-txt i{ display:block; font-style:normal; font-size:9.5px; color:var(--c-dim); margin-top:1px; }
+.dg-body{ padding:0 12px 12px; }
+
+/* ---------- สไลด์โปรฝาก ---------- */
+.promo-slider{ margin-top:14px; }
+.promo-head{ display:flex; align-items:center; gap:8px; margin-bottom:10px; padding:0 2px; }
+.promo-head b{ font-size:12.5px; font-weight:800; color:#ffeef5; }
+.promo-head i{ font-style:normal; font-size:9.5px; color:var(--c-dim); margin-left:auto; }
+
+.promo-featured{
+  display:block; position:relative; border-radius:18px; overflow:hidden; margin-bottom:8px;
+  border:2px solid rgba(255,201,60,.45); text-decoration:none;
+  box-shadow:0 14px 32px -10px rgba(20,4,14,.75), 0 0 0 1px rgba(255,201,60,.08);
+  transition:transform .15s;
+}
+.promo-featured img{ width:100%; display:block; aspect-ratio:1/1; object-fit:cover; background:var(--c-navy-1); }
+.promo-featured:active{ transform:scale(.98); }
+.promo-badge{
+  position:absolute; top:10px; left:10px; z-index:2;
+  display:flex; align-items:center; gap:4px; padding:4px 11px; border-radius:99px;
+  background:linear-gradient(90deg,#ffb020,#ff7a00); color:#2a1500;
+  font-size:9.5px; font-weight:800; letter-spacing:.3px;
+  box-shadow:0 4px 12px -2px rgba(255,140,0,.65);
+}
+.promo-badge svg{ width:10px; height:10px; }
+
+.promo-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:7px; }
+.promo-mini{
+  display:block; border-radius:12px; overflow:hidden; text-decoration:none;
+  border:1px solid rgba(255,155,208,.28);
+  transition:transform .15s;
+}
+.promo-mini img{ width:100%; display:block; aspect-ratio:1/1; object-fit:cover; background:var(--c-navy-1); }
+.promo-mini:active{ transform:scale(.94); }
+
+
+.dp-stats{
+  display:flex; align-items:center; margin-bottom:10px;
+  background:rgba(34,8,24,.7); border:1px solid rgba(255,201,60,.18); border-radius:12px; padding:8px 4px;
+}
+.dp-stat{ flex:1; position:relative; text-align:center; padding:2px 4px; background:none; border:none; border-radius:0; }
+.dp-stat:not(:last-child)::after{ content:''; position:absolute; top:50%; right:0; transform:translateY(-50%); width:1px; height:20px; background:rgba(255,201,60,.2); }
+.dp-stat-k{ font-size:8px; font-weight:400; color:var(--c-muted); letter-spacing:.3px; }
+.dp-stat-v{ font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; color:#ffc93c; margin-top:2px; line-height:1.1; }
+.dp-stat-v small{ font-family:'Kanit',sans-serif; font-size:8.5px; font-weight:300; opacity:.75; margin-left:2px; color:var(--c-muted); }
+
+.dp-tabs{ display:flex; gap:6px; overflow-x:auto; padding-bottom:10px; scrollbar-width:none; }
+.dp-tabs::-webkit-scrollbar{ display:none; }
+.dp-tab{
+  flex-shrink:0; padding:7px 12px; border-radius:99px; cursor:pointer;
+  background:rgba(34,8,24,.85); border:1px solid rgba(255,201,60,.18);
+  font-family:inherit; font-size:11px; font-weight:400; color:var(--c-muted);
+  transition:background .15s,color .15s,border-color .15s;
+}
+.dp-tab:hover{ color:var(--c-txt); border-color:rgba(255,201,60,.4); }
+.dp-tab.is-on{
+  background:linear-gradient(135deg,#ffd75e,#ff8a00);
+  border-color:transparent; color:#2a1500; font-weight:700;
+  box-shadow:0 7px 16px -7px rgba(255,150,0,0.85);
+}
+
+/* กริดโปสเตอร์เกม */
+.dp-list{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;
+  max-height:400px; overflow-y:auto; overscroll-behavior:contain; scrollbar-width:thin; scrollbar-color:rgba(255,201,60,.4) transparent;
+  mask-image:linear-gradient(180deg, black 0%, black 92%, transparent 100%);
+  -webkit-mask-image:linear-gradient(180deg, black 0%, black 92%, transparent 100%);
+  padding-bottom:6px;
+}
+.dp-list::-webkit-scrollbar{ width:5px; }
+.dp-list::-webkit-scrollbar-thumb{ background:rgba(255,201,60,.4); border-radius:99px; }
+.dp-list::-webkit-scrollbar-track{ background:transparent; }
+
+.dp-row{
+  display:flex; flex-direction:column; text-align:left; cursor:pointer;
+  background:rgba(30,7,20,.9); border:1px solid rgba(255,201,60,.16); border-radius:12px; overflow:hidden;
+  font-family:inherit; padding:0; transition:transform .15s,border-color .15s,box-shadow .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.dp-row:hover{ transform:translateY(-2px); border-color:rgba(255,201,60,.5); box-shadow:0 10px 20px -8px rgba(0,0,0,.6); }
+.dp-row:active{ transform:scale(.96); }
+.dp-row:focus-visible{ outline:2px solid #ffc93c; outline-offset:2px; }
+
+.dp-thumb{ width:100%; aspect-ratio:3/4; flex-shrink:0; overflow:hidden; background:#1c0714; border:none; position:relative; }
+.dp-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.dp-info{ flex:1; min-width:0; padding:6px 7px 8px; }
+.dp-name{ font-size:10.5px; font-weight:600; color:var(--c-txt); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.dp-meta{ display:flex; align-items:center; gap:6px; margin-top:3px; font-size:8px; font-weight:300; color:var(--c-muted); flex-wrap:wrap; }
+.dp-meta i{ display:inline-flex; align-items:center; gap:2px; font-style:normal; }
+.dp-meta svg{ width:8px; height:8px; flex-shrink:0; }
+.dp-meta .dp-live svg{ color:#4ade80; }
+.dp-meta b{ font-family:'JetBrains Mono',monospace; font-weight:600; color:#ffb8d9; }
+.dp-tagp{
+  position:absolute; top:5px; left:5px; z-index:1;
+  padding:1.5px 6px; border-radius:5px; background:rgba(0,0,0,.55); backdrop-filter:blur(2px);
+  color:#ffc93c; font-size:7.5px; font-weight:600;
+}
+
+.dp-rtp{ display:flex; align-items:center; gap:5px; margin-top:5px; }
+.dp-rtp-track{ flex:1; height:3px; border-radius:99px; background:rgba(255,255,255,0.09); overflow:hidden; }
+.dp-rtp-fill{ height:100%; border-radius:99px; background:linear-gradient(to right,#ffc93c,#ff8a00); }
+.dp-rtp-pct{ font-family:'JetBrains Mono',monospace; font-size:8px; font-weight:600; color:#ffc93c; white-space:nowrap; }
+
+.dp-state{ grid-column:1/-1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:9px; min-height:140px; padding:20px; text-align:center; color:var(--c-muted); font-size:11.5px; font-weight:300; line-height:1.6; }
+.dp-state.is-err{ color:#fca5a5; }
+.dp-state.is-hide{ display:none; }
+.dp-state svg{ width:20px; height:20px; }
+.dp-spin{ animation:dpSpin .9s linear infinite; }
+@keyframes dpSpin{ to{ transform:rotate(360deg); } }
+
+/* skeleton shimmer ตอนกำลังโหลดรายการเกม (กริดโปสเตอร์) */
+.dp-skeleton{ display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; }
+.dp-skeleton.is-hide{ display:none; }
+.dp-skel-row{ border-radius:12px; overflow:hidden; background:rgba(30,7,20,.9); border:1px solid rgba(255,201,60,.12); }
+.dp-skel-thumb{ width:100%; aspect-ratio:3/4; border-radius:0; }
+.dp-skel-lines{ display:flex; flex-direction:column; gap:6px; padding:7px; }
+.dp-skel-line{ height:7px; border-radius:4px; }
+.dp-skel-line.w60{ width:70%; }
+.dp-skel-line.w40{ width:45%; }
+.dp-skel-line.w80{ width:90%; margin-top:1px; }
+.dp-skel-thumb,.dp-skel-line{
+  background:linear-gradient(90deg, rgba(255,201,60,.06) 25%, rgba(255,201,60,.18) 37%, rgba(255,201,60,.06) 63%);
+  background-size:400% 100%;
+  animation:dpShimmer 1.4s ease-in-out infinite;
+}
+@keyframes dpShimmer{ 0%{ background-position:100% 0; } 100%{ background-position:0 0; } }
+@media (prefers-reduced-motion: reduce){ .dp-skel-thumb,.dp-skel-line{ animation:none; } }
+
+.dg-toolbar-bottom{ display:flex; justify-content:center; margin-top:8px; }
+.dp-reroll{
+  display:flex; align-items:center; gap:6px; padding:9px 16px; border-radius:11px; cursor:pointer;
+  background:rgba(255,45,149,.14); border:1px solid var(--c-line-2);
+  font-family:inherit; font-size:11px; font-weight:500; color:var(--c-blue-3); transition:background .15s;
+}
+.dp-reroll:hover{ background:rgba(255,45,149,.24); }
+.dp-reroll:active{ transform:scale(.96); }
+.dp-reroll svg{ width:12px; height:12px; }
+
+@media (max-width:380px){
+  .cc-body{ padding:16px 18px 20px; }
+  .cc-input{ font-size:18px; padding:17px 14px; letter-spacing:3px; }
+  .cc-trust-i b{ font-size:9px; }
+  .bw-amount span{ font-size:38px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .cc-btn::after, .cf-dot, .dp-spin { animation:none; }
+}
+
+/* ═══════════════════════════════
+   POPUP (รับเครดิตสำเร็จ) — ดีไซน์ใหม่: สปอตไลท์รางวัล
+═══════════════════════════════ */
+.cpop-overlay {
+  position:fixed; inset:0; z-index:9999; display:none; align-items:center; justify-content:center;
+  background:rgba(10,2,7,.82); backdrop-filter:blur(6px); padding:20px; font-family:'Kanit',sans-serif;
+}
+.cpop-overlay.show{ display:flex; }
+.cpop-card {
+  position:relative; width:100%; max-width:340px; border-radius:26px; padding:2px; overflow:hidden;
+  background:linear-gradient(150deg,#ffe07a,#ff2d95 45%,#3a0a26 100%);
+  box-shadow:0 35px 80px -15px rgba(224,21,122,.6);
+  animation:cpopIn .5s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes cpopIn{ 0%{ transform:scale(.78) translateY(24px); opacity:0 } 100%{ transform:scale(1) translateY(0); opacity:1 } }
+.cpop-inner {
+  position:relative; border-radius:24px; padding:20px 22px 24px; text-align:center; overflow:hidden;
+  background:radial-gradient(circle at 50% 32%, #6b0f42 0%, #3a0a26 55%, #170512 100%);
+}
+.cpop-rays{
+  position:absolute; inset:-30%; z-index:0; pointer-events:none;
+  background:repeating-conic-gradient(from 0deg, rgba(255,201,60,.14) 0deg 4deg, transparent 4deg 18deg);
+  mask-image:radial-gradient(circle at 50% 46%, black 0%, transparent 62%);
+  -webkit-mask-image:radial-gradient(circle at 50% 46%, black 0%, transparent 62%);
+  animation:cpopRotBg 14s linear infinite;
+}
+@keyframes cpopRotBg{ to{ transform:rotate(360deg); } }
+
+.cpop-topbar{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; }
+.cpop-badge { position:relative; display:flex; align-items:center; justify-content:flex-start; }
+.cpop-badge .fb{ font-weight:800; font-size:16px; color:#fff; display:none; }
+.cpop-badge img{ height:30px; width:auto; max-width:110px; filter:drop-shadow(0 4px 10px rgba(0,0,0,.5)); }
+.cpop-close { position:relative; top:0; right:0; width:28px; height:28px; border-radius:50%; border:none; cursor:pointer;
+  background:rgba(255,255,255,.15); color:#fff; display:flex; align-items:center; justify-content:center; z-index:5; transition:background .15s; }
+.cpop-close:hover{ background:rgba(255,255,255,.3); }
+.cpop-close svg{ width:13px; height:13px; }
+
+.cpop-eyebrow{ position:relative; z-index:1; display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:1px; color:#ffe0ee; background:rgba(0,0,0,.25); border:1px solid rgba(255,201,60,.3); border-radius:50px; padding:4px 12px; margin-bottom:8px; }
+.cpop-h1 { position:relative; z-index:1; color:#fff; font-size:16px; font-weight:700; margin-bottom:2px; text-shadow:0 2px 8px rgba(0,0,0,.3); }
+.cpop-amount { position:relative; z-index:1; font-size:13px; font-weight:600; line-height:1; color:rgba(255,255,255,.8); margin:2px 0; }
+.cpop-amount.big{
+  font-size:56px; font-weight:800; margin:2px 0 4px; line-height:1;
+  background:linear-gradient(180deg,#fff8e0,#ffc93c 60%,#ff8a00); -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 6px 18px rgba(255,150,0,.5));
+}
+.cpop-amount.big i.u{ font-style:normal; font-size:17px; font-weight:700; -webkit-text-fill-color:#ffd9ee; }
+
+.cpop-stats-row{ position:relative; z-index:1; display:flex; gap:8px; margin:10px 0 4px; }
+.cpop-stat-chip{
+  flex:1; background:rgba(0,0,0,.28); border:1px solid rgba(255,201,60,.28); border-radius:12px; padding:8px 6px;
+}
+.cpop-stat-chip .k{ display:block; font-size:8.5px; color:#ffd9ee; letter-spacing:.5px; text-transform:uppercase; }
+.cpop-stat-chip .v{ display:block; font-size:15px; font-weight:800; color:#ffc93c; margin-top:2px; font-family:'JetBrains Mono',monospace; }
+
+.cpop-sub { position:relative; z-index:1; color:rgba(255,255,255,.85); font-size:11.5px; margin:12px 0 14px; line-height:1.6; }
+.cpop-sub b{ color:#ffcce8; }
+
+.cpop-chips { position:relative; z-index:1; display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-bottom:14px; }
+.cpop-chip { display:flex; flex-direction:column; align-items:center; gap:5px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); border-radius:12px; padding:8px 3px; }
+.cpop-chip-ic{ width:22px; height:22px; border-radius:7px; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:rgba(255,201,60,.22); }
+.cpop-chip-ic svg{ width:12px; height:12px; color:#ffc93c; }
+.cpop-chip span{ font-size:8px; font-weight:600; color:#fff; text-align:center; line-height:1.25; }
+
+.cpop-status { position:relative; z-index:1; display:flex; align-items:center; justify-content:center; gap:8px; background:rgba(0,0,0,.3); border:1px solid rgba(255,201,60,.25); border-radius:50px; padding:10px 16px; font-size:11.5px; font-weight:600; color:#fff; }
+.cpop-spin { width:14px; height:14px; border-radius:50%; border:2px solid rgba(255,201,60,.3); border-top-color:#ffc93c; animation:cpopRot .7s linear infinite; flex-shrink:0; }
+@keyframes cpopRot{ to{ transform:rotate(360deg); } }
+.cpop-count{ font-weight:800; color:#ffc93c; }
+
+.cpop-manual { display:none; margin-top:12px; position:relative; z-index:1; }
+.cpop-manual.show{ display:block; }
+.cpop-manual a { display:inline-flex; align-items:center; gap:7px; background:linear-gradient(180deg,#ffe07a,#ffb020); color:#2a1500; font-weight:700; font-size:13px; padding:11px 22px; border-radius:50px; text-decoration:none; box-shadow:0 8px 20px -6px rgba(0,0,0,.5); }
+.cpop-manual a svg{ width:14px; height:14px; }
+
+.cpop-confetti { position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:1; }
+.cpop-confetti i { position:absolute; top:-12px; border-radius:2px; opacity:0; animation-name:cpopFall; animation-timing-function:ease-in; animation-iteration-count:1; }
+@keyframes cpopFall {
+  0% { transform:translateY(0) rotate(0deg); opacity:1; }
+  100% { transform:translateY(380px) rotate(460deg); opacity:0; }
+}
+@media (prefers-reduced-motion: reduce){ .cpop-rays{ animation:none; } }
+
+/* ---------- หน้าต่างเล่นเกม ---------- */
+#dp-overlay{
+  position:fixed; inset:0; z-index:9998; padding:16px;
+  background:rgba(20,4,14,0.9); backdrop-filter:blur(5px);
+  display:none; align-items:center; justify-content:center; font-family:'Kanit',sans-serif;
+}
+#dp-overlay.is-show{ display:flex; }
+#dp-overlay *{ box-sizing:border-box; }
+.dp-modal{
+  position:relative; width:100%; max-width:480px; aspect-ratio:9/16; max-height:94vh;
+  background:#000; border:1px solid var(--c-line-2); border-radius:20px; overflow:hidden; box-shadow:0 28px 70px rgba(18,3,14,0.8);
+}
+.dp-bar{ position:absolute; top:0; left:0; right:0; z-index:2; display:flex; align-items:center; gap:8px; padding:10px 11px;
+  background:linear-gradient(to bottom,rgba(28,5,20,0.92),transparent); }
+.dp-mtitle{ font-size:11.5px; font-weight:400; color:#ffd9ee; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.dp-credit{ display:none; align-items:center; gap:5px; margin-left:auto; flex-shrink:0;
+  background:rgba(255,45,149,0.18); border:1px solid var(--c-line-2); padding:5px 11px; border-radius:10px;
+  font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; color:#fff; }
+.dp-credit.is-show{ display:inline-flex; }
+.dp-credit svg{ width:11px; height:11px; color:var(--c-blue-3); }
+.dp-close{ width:30px; height:30px; flex-shrink:0; border-radius:10px; border:1px solid var(--c-line-2);
+  background:rgba(255,45,149,0.18); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.dp-close:hover{ background:rgba(255,45,149,0.36); }
+.dp-close svg{ width:13px; height:13px; }
+.dp-frame{ width:100%; height:100%; border:0; display:none; }
+.dp-mstate{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+  background:var(--c-navy-2); color:var(--c-muted); font-size:12.5px; font-weight:300; text-align:center; padding:20px; }
+.dp-mstate.is-hide{ display:none; }
+.dp-mstate svg{ width:26px; height:26px; }
+</style>
+
+<!-- สเต็ป 1: วิดีโอเปิดตัวเต็มจอ เล่นครั้งเดียวตอนลูกค้ากดเข้ามา แตะที่ไหนก็ข้ามได้ -->
+</head><body>
+
+<!-- สเต็ป 2: หน้ากรอกโค้ดรับเครดิต -->
+<div class="cw">
+  <div class="cc">
+    <div class="cc-inner">
+      <div class="cc-bg-wall game-wall" id="ccBgWall"><div class="gw-col"><img src="https://games-api.cryteksoft.cloud/images/pg/majestic-empire.jpg" alt="Majestic Empire" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Kraken20Rush.webp" alt="Kraken Gold Rush" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PharaohRoyals.png" alt="Pharaoh Royals" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Skylight-Wonders.webp" alt="Skylight Wonders" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/galexy-miner.png" alt="Galaxy Miner" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/dragons-treasure-quest.png" alt="Dragon's Treasure" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Frenzy-Spins.webp" alt="Diner Frenzy Spins" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/jackthegiant-hunter.png" alt="Jack the Giant" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/majestic-empire.jpg" alt="Majestic Empire" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Kraken20Rush.webp" alt="Kraken Gold Rush" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PharaohRoyals.png" alt="Pharaoh Royals" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Skylight-Wonders.webp" alt="Skylight Wonders" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/galexy-miner.png" alt="Galaxy Miner" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/dragons-treasure-quest.png" alt="Dragon's Treasure" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Frenzy-Spins.webp" alt="Diner Frenzy Spins" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/jackthegiant-hunter.png" alt="Jack the Giant" loading="lazy" decoding="async" onerror="this.style.display='none'"></div><div class="gw-col"><img src="https://games-api.cryteksoft.cloud/images/pg/Fortune-Snake.jpg" alt="Fortune Snake" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Geishas-Revenge.jpg" alt="Geisha's Revenge" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/chocolate-deluxe.jpg" alt="Chocolate Deluxe" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Yakuza_Honor_img.jpg" alt="Yakuza Honor" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Ganesha%20Fortune_1702651007.webp" alt="Ganesha Fortune" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Lucky%20Neko_1702651224.webp" alt="Lucky Neko" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Ganesha%20Gold_1702651014.webp" alt="Ganesha Gold" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Fortune%20Tiger_1702650988.webp" alt="Fortune Tiger" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Fortune-Snake.jpg" alt="Fortune Snake" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Geishas-Revenge.jpg" alt="Geisha's Revenge" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/chocolate-deluxe.jpg" alt="Chocolate Deluxe" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Yakuza_Honor_img.jpg" alt="Yakuza Honor" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Ganesha%20Fortune_1702651007.webp" alt="Ganesha Fortune" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Lucky%20Neko_1702651224.webp" alt="Lucky Neko" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Ganesha%20Gold_1702651014.webp" alt="Ganesha Gold" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Fortune%20Tiger_1702650988.webp" alt="Fortune Tiger" loading="lazy" decoding="async" onerror="this.style.display='none'"></div><div class="gw-col"><img src="https://games-api.cryteksoft.cloud/images/pg/majestic-empire.jpg" alt="Majestic Empire" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Kraken20Rush.webp" alt="Kraken Gold Rush" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PharaohRoyals.png" alt="Pharaoh Royals" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Skylight-Wonders.webp" alt="Skylight Wonders" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/galexy-miner.png" alt="Galaxy Miner" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/dragons-treasure-quest.png" alt="Dragon's Treasure" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Frenzy-Spins.webp" alt="Diner Frenzy Spins" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/jackthegiant-hunter.png" alt="Jack the Giant" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/majestic-empire.jpg" alt="Majestic Empire" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Kraken20Rush.webp" alt="Kraken Gold Rush" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PharaohRoyals.png" alt="Pharaoh Royals" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Skylight-Wonders.webp" alt="Skylight Wonders" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/galexy-miner.png" alt="Galaxy Miner" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/dragons-treasure-quest.png" alt="Dragon's Treasure" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Frenzy-Spins.webp" alt="Diner Frenzy Spins" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/jackthegiant-hunter.png" alt="Jack the Giant" loading="lazy" decoding="async" onerror="this.style.display='none'"></div><div class="gw-col"><img src="https://games-api.cryteksoft.cloud/images/pg/Fortune-Snake.jpg" alt="Fortune Snake" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Geishas-Revenge.jpg" alt="Geisha's Revenge" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/chocolate-deluxe.jpg" alt="Chocolate Deluxe" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Yakuza_Honor_img.jpg" alt="Yakuza Honor" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Ganesha%20Fortune_1702651007.webp" alt="Ganesha Fortune" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Lucky%20Neko_1702651224.webp" alt="Lucky Neko" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Ganesha%20Gold_1702651014.webp" alt="Ganesha Gold" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Fortune%20Tiger_1702650988.webp" alt="Fortune Tiger" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Fortune-Snake.jpg" alt="Fortune Snake" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Geishas-Revenge.jpg" alt="Geisha's Revenge" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/chocolate-deluxe.jpg" alt="Chocolate Deluxe" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/Yakuza_Honor_img.jpg" alt="Yakuza Honor" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Ganesha%20Fortune_1702651007.webp" alt="Ganesha Fortune" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Lucky%20Neko_1702651224.webp" alt="Lucky Neko" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Ganesha%20Gold_1702651014.webp" alt="Ganesha Gold" loading="lazy" decoding="async" onerror="this.style.display='none'"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Fortune%20Tiger_1702650988.webp" alt="Fortune Tiger" loading="lazy" decoding="async" onerror="this.style.display='none'"></div></div>
+      <div class="cc-bg-wall-overlay"></div>
+      <div class="cc-blob b1"></div>
+      <div class="cc-blob b2"></div>
+
+      <!-- แถบแบรนด์ (สเต็ป 2: หลังวิดีโอเปิดตัวจบ ลูกค้ามาถึงตรงนี้) — เน้นโลโก้ชัดๆ พื้นหลังวอลล์ภาพเกมของการ์ดโชว์ผ่าน -->
+      <div class="bw-strip">
+        <span class="bw-logo-fb">UWIN99TH</span>
+        <img class="bw-strip-logo bw-logo-img" alt="UWIN99TH" onerror="this.style.display='none'; this.previousElementSibling.style.display='inline';" src="https://cdn-asia1.nexzcloud.lol/@zynlabs/8679824f-af17-4d7f-8a53-acfa14c5a203#fid=234154">
+        <span class="bw-live"><i></i>LIVE</span>
+      </div>
+
+      <div class="cc-body">
+
+        <!-- stat strip -->
+        <div class="cc-stats">
+          <div class="cc-stat">
+            <div class="cc-stat-ic">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1"></circle></svg>
+            </div>
+            <div class="cc-stat-tx"><div class="k">ทำยอด</div><div class="v"><span data-turnover="">600</span><i class="u">บาท</i></div></div>
+          </div>
+          <div class="cc-stat">
+            <div class="cc-stat-ic">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"></path><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"></path><path d="M18 12a2 2 0 0 0 0 4h4v-4z"></path></svg>
+            </div>
+            <div class="cc-stat-tx"><div class="k">ถอนได้</div><div class="v"><span data-withdraw="">120</span><i class="u">บาท</i></div></div>
+          </div>
+        </div>
+
+        <div class="cc-field-label"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"></path><path d="M13 5v2M13 17v2M13 11v2"></path></svg>โค้ดรับเครดิต</div>
+        <input class="cc-input" id="ccCode" type="text" placeholder="XXXX-XXXX" autocomplete="off" spellcheck="false" inputmode="text">
+        <div class="cc-error" id="ccErr"></div>
+
+        <button class="cc-btn" id="ccBtn" disabled="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span id="ccBtnTxt">ยืนยันรับเครดิตฟรี</span>
+        </button>
+
+        <div class="cc-footer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          ยืนยันโค้ดอย่างปลอดภัย ไม่บันทึกข้อมูลถาวร
+        </div>
+
+        <div class="cc-trust">
+          <div class="cc-trust-i">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+            <b>ปลอดภัย 100%</b><i>ระบบมาตรฐานสากล</i>
+          </div>
+          <div class="cc-trust-i">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+            <b>ฝาก-ถอนไว</b><i>ภายใน 30 วินาที</i>
+          </div>
+          <div class="cc-trust-i">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"></path><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+            <b>บริการ 24 ชม.</b><i>พร้อมดูแลทุกเวลา</i>
+          </div>
+        </div>
+
+        <div class="cf">
+          <div class="cf-head">
+            <div class="cf-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V22H4V12"></path><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg></div>
+            <div><div class="cf-ttl">รายการรับเครดิตฟรี <span data-credit="">100</span> ล่าสุด</div><div class="cf-sub">อัปเดตแบบ real-time</div></div>
+            <div class="cf-live"><span class="cf-dot"></span><span class="cf-ltxt">LIVE</span></div>
+          </div>
+          <div class="cf-list" id="cfList"><div class="cf-item new"><div class="cf-av" style="background:linear-gradient(135deg,#12a9e0,#0c6f96)"><img src="https://games-api.cryteksoft.cloud/images/banks/ttb.webp" alt="ทหารไทยธนชาต" onerror="bankImgError(this)"></div><div class="cf-i"><div class="cf-phone">092-XXX-2264</div><div class="cf-act">กรอกโค้ดสำเร็จ • ธ.ทหารไทยธนชาต • 100 บาท</div></div><div class="cf-r"><div class="cf-time">32 วิที่แล้ว</div><div class="cf-badge">สำเร็จ</div></div></div><div class="cf-item"><div class="cf-av" style="background:linear-gradient(135deg,#00a950,#017a3b)"><img src="https://games-api.cryteksoft.cloud/images/banks/kbank.webp" alt="กสิกรไทย" onerror="bankImgError(this)"></div><div class="cf-i"><div class="cf-phone">064-XXX-7463</div><div class="cf-act">กรอกโค้ดสำเร็จ • ธ.กสิกรไทย • 100 บาท</div></div><div class="cf-r"><div class="cf-time">54 วิที่แล้ว</div><div class="cf-badge">สำเร็จ</div></div></div><div class="cf-item"><div class="cf-av" style="background:linear-gradient(135deg,#1e4598,#132f6b)"><img src="https://games-api.cryteksoft.cloud/images/banks/bbl.webp" alt="กรุงเทพ" onerror="bankImgError(this)"></div><div class="cf-i"><div class="cf-phone">093-XXX-5735</div><div class="cf-act">กรอกโค้ดสำเร็จ • ธ.กรุงเทพ • 100 บาท</div></div><div class="cf-r"><div class="cf-time">1 นาทีที่แล้ว</div><div class="cf-badge">สำเร็จ</div></div></div><div class="cf-item"><div class="cf-av" style="background:linear-gradient(135deg,#003876,#00204a)"><img src="https://games-api.cryteksoft.cloud/images/banks/uob.webp" alt="ยูโอบี" onerror="bankImgError(this)"></div><div class="cf-i"><div class="cf-phone">089-XXX-8100</div><div class="cf-act">กรอกโค้ดสำเร็จ • ธ.ยูโอบี • 100 บาท</div></div><div class="cf-r"><div class="cf-time">1 นาทีที่แล้ว</div><div class="cf-badge">สำเร็จ</div></div></div></div>
+        </div>
+
+        <!-- สไลด์โปรฝาก (กดแล้วเด้งไปหน้าฝากเงิน) -->
+        <div class="promo-slider">
+          <div class="promo-head"><b>โปรโมชั่นฝากเงิน</b><i>คุ้มสุดโชว์ก่อน</i></div>
+          <a class="promo-featured" href="https://uwinx.me/?openExternalBrowser=1" target="_blank" rel="noopener">
+            <span class="promo-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path></svg>คุ้มสุด</span>
+            <img src="https://cdn-asia1.nexzcloud.lol/@zynlabs/37260cf2-1a22-40df-bd7c-624327abdadd#fid=151451" alt="ฝาก 15 รับ 115 บาท" loading="lazy">
+          </a>
+          <div class="promo-grid">
+            <a class="promo-mini" href="https://uwinx.me/?openExternalBrowser=1" target="_blank" rel="noopener"><img src="https://cdn-asia1.nexzcloud.lol/@zynlabs/9ae7ae01-1b8b-4cbf-9ada-9aa14d31ab49#fid=151453" alt="ฝาก 29 รับ 189 บาท" loading="lazy"></a>
+            <a class="promo-mini" href="https://uwinx.me/?openExternalBrowser=1" target="_blank" rel="noopener"><img src="https://cdn-asia1.nexzcloud.lol/@zynlabs/336bed5f-4fca-40e4-899e-d2b9eeb1eef6#fid=151455" alt="ฝาก 79 รับ 300 บาท" loading="lazy"></a>
+            <a class="promo-mini" href="https://uwinx.me/?openExternalBrowser=1" target="_blank" rel="noopener"><img src="https://cdn-asia1.nexzcloud.lol/@zynlabs/1b40b1f2-2ae0-469b-9b44-0604412aaec8#fid=151458" alt="ฝาก 100 รับ 500 บาท" loading="lazy"></a>
+            <a class="promo-mini" href="https://uwinx.me/?openExternalBrowser=1" target="_blank" rel="noopener"><img src="https://cdn-asia1.nexzcloud.lol/@zynlabs/8f300135-5fe9-4d8a-bdfa-9520488ab781#fid=151466" alt="ฝาก 200 รับ 600 บาท" loading="lazy"></a>
+          </div>
+        </div>
+
+        <!-- เกมทดลองเล่น: แสดงตลอด ไม่ต้องกดเปิด -->
+        <div class="dg-section" id="dp-root">
+          <div class="dg-head">
+            <span class="dg-toggle-ic">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="4"></rect><path d="M7 12h4M9 10v4"></path><circle cx="16" cy="11" r="1"></circle><circle cx="18.5" cy="14" r="1"></circle></svg>
+            </span>
+            <span class="dg-toggle-txt">
+              <b>ทดลองเล่นเกมฟรี</b>
+              <i>เลือกเกมแล้วเล่นได้ทันที ไม่ต้องสมัคร</i>
+            </span>
+          </div>
+
+          <div class="dg-body" id="dgBody">
+            <div class="dp-stats">
+              <div class="dp-stat"><div class="dp-stat-k">เกมทั้งหมด</div><div class="dp-stat-v" id="dp-st-games">329<small>เกม</small></div></div>
+              <div class="dp-stat"><div class="dp-stat-k">ค่ายเกม</div><div class="dp-stat-v" id="dp-st-prov">4<small>ค่าย</small></div></div>
+              <div class="dp-stat"><div class="dp-stat-k">กำลังเล่นอยู่</div><div class="dp-stat-v" id="dp-st-live">5,570<small>คน</small></div></div>
+            </div>
+
+            <div class="dp-tabs" id="dp-tabs"><button type="button" class="dp-tab is-on" data-key="ALL">ทุกค่าย</button><button type="button" class="dp-tab" data-key="PG">PG Soft</button><button type="button" class="dp-tab" data-key="JILI">JILI</button><button type="button" class="dp-tab" data-key="JOKER">Joker</button><button type="button" class="dp-tab" data-key="PP">Pragmatic Play</button></div>
+
+            <div class="dp-skeleton is-hide" id="dpSkeleton">
+              <div class="dp-skel-row"><div class="dp-skel-thumb"></div><div class="dp-skel-lines"><div class="dp-skel-line w60"></div><div class="dp-skel-line w40"></div></div></div>
+              <div class="dp-skel-row"><div class="dp-skel-thumb"></div><div class="dp-skel-lines"><div class="dp-skel-line w60"></div><div class="dp-skel-line w40"></div></div></div>
+              <div class="dp-skel-row"><div class="dp-skel-thumb"></div><div class="dp-skel-lines"><div class="dp-skel-line w60"></div><div class="dp-skel-line w40"></div></div></div>
+              <div class="dp-skel-row"><div class="dp-skel-thumb"></div><div class="dp-skel-lines"><div class="dp-skel-line w60"></div><div class="dp-skel-line w40"></div></div></div>
+              <div class="dp-skel-row"><div class="dp-skel-thumb"></div><div class="dp-skel-lines"><div class="dp-skel-line w60"></div><div class="dp-skel-line w40"></div></div></div>
+              <div class="dp-skel-row"><div class="dp-skel-thumb"></div><div class="dp-skel-lines"><div class="dp-skel-line w60"></div><div class="dp-skel-line w40"></div></div></div>
+            </div>
+
+            <div class="dp-state is-hide" id="dp-state">
+              <svg class="dp-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-6.22-8.56"></path></svg>
+              <span>กำลังโหลดเกม...</span>
+            </div>
+
+            <div class="dp-list" id="dp-list"><button type="button" class="dp-row" data-idx="0"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Mafia%20Mayhem_1702653832.webp" alt="Mafia Mayhem" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">PG Soft</span></span><span class="dp-info"><span class="dp-name">Mafia Mayhem</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="0">473</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="0">45:26</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:86%"></span></span><span class="dp-rtp-pct">86.<span data-d="0">23</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="1"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/jili/21.png" alt="One Line Shot" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">JILI</span></span><span class="dp-info"><span class="dp-name">One Line Shot</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="1">291</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="1">55:04</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:72%"></span></span><span class="dp-rtp-pct">72.<span data-d="1">59</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="2"><span class="dp-thumb"><img src="https://setting.playfectgame.com/back/images/GameIcon/PP/vs20candybltz2.png" alt="vs20candybltz2" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">Pragmatic Play</span></span><span class="dp-info"><span class="dp-name">vs20candybltz2</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="2">278</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="2">34:48</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:86%"></span></span><span class="dp-rtp-pct">86.<span data-d="2">56</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="3"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/pg/Kraken20Rush.webp" alt="Kraken Gold Rush" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">PG Soft</span></span><span class="dp-info"><span class="dp-name">Kraken Gold Rush</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="3">467</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="3">42:05</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:83%"></span></span><span class="dp-rtp-pct">83.<span data-d="3">44</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="4"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/jili/300.png" alt="Fortune Gems 3" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">JILI</span></span><span class="dp-info"><span class="dp-name">Fortune Gems 3</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="4">96</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="4">53:05</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:71%"></span></span><span class="dp-rtp-pct">71.<span data-d="4">07</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="5"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Totem%20Wonders_1702651508.webp" alt="totem-wonders" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">PG Soft</span></span><span class="dp-info"><span class="dp-name">totem-wonders</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="5">71</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="5">14:58</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:93%"></span></span><span class="dp-rtp-pct">93.<span data-d="5">90</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="6"><span class="dp-thumb"><img src="https://setting.playfectgame.com/back/images/GameIcon/PP/vswaysolwfp.webp" alt="Olympus Wins" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">Pragmatic Play</span></span><span class="dp-info"><span class="dp-name">Olympus Wins</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="6">462</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="6">14:56</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:87%"></span></span><span class="dp-rtp-pct">87.<span data-d="6">05</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="7"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/jili/5.png" alt="Chilli Slot" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">JILI</span></span><span class="dp-info"><span class="dp-name">Chilli Slot</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="7">119</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="7">27:11</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:84%"></span></span><span class="dp-rtp-pct">84.<span data-d="7">94</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="8"><span class="dp-thumb"><img src="https://setting.playfectgame.com/back/images/GameIcon/PP/vs25checaishen.png" alt="vs25checaishen" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">Pragmatic Play</span></span><span class="dp-info"><span class="dp-name">vs25checaishen</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="8">202</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="8">53:58</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:93%"></span></span><span class="dp-rtp-pct">93.<span data-d="8">64</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="9"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Ultimate%20Striker_1702649897.webp" alt="Ultimate Striker" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">PG Soft</span></span><span class="dp-info"><span class="dp-name">Ultimate Striker</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="9">361</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="9">24:49</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:89%"></span></span><span class="dp-rtp-pct">89.<span data-d="9">23</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="10"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/joker/BlackbeardLegacy.png" alt="Blackbeard Legacy" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">Joker</span></span><span class="dp-info"><span class="dp-name">Blackbeard Legacy</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="10">134</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="10">30:58</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:92%"></span></span><span class="dp-rtp-pct">92.<span data-d="10">63</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="11"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Wild%20Fireworks_1702652176.webp" alt="wild-fireworks" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">PG Soft</span></span><span class="dp-info"><span class="dp-name">wild-fireworks</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="11">477</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="11">13:53</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:75%"></span></span><span class="dp-rtp-pct">75.<span data-d="11">08</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="12"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/jili/142.png" alt="Bonus Hunter" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">JILI</span></span><span class="dp-info"><span class="dp-name">Bonus Hunter</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="12">102</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="12">57:32</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:94%"></span></span><span class="dp-rtp-pct">94.<span data-d="12">68</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="13"><span class="dp-thumb"><img src="https://setting.playfectgame.com/back/images/GameIcon/PP/vs25sleepdrag.webp" alt="Sleeping Dragon" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">Pragmatic Play</span></span><span class="dp-info"><span class="dp-name">Sleeping Dragon</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="13">90</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="13">12:35</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:82%"></span></span><span class="dp-rtp-pct">82.<span data-d="13">43</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="14"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Supermarket%20Spree_1702650023.webp" alt="sprmkt-spree" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">PG Soft</span></span><span class="dp-info"><span class="dp-name">sprmkt-spree</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="14">490</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="14">23:57</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:84%"></span></span><span class="dp-rtp-pct">84.<span data-d="14">92</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="15"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/jili/145.png" alt="Fortune Neko" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">JILI</span></span><span class="dp-info"><span class="dp-name">Fortune Neko</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="15">107</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="15">15:39</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:70%"></span></span><span class="dp-rtp-pct">70.<span data-d="15">64</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="16"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/jili/183.png" alt="Golden Joker" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">JILI</span></span><span class="dp-info"><span class="dp-name">Golden Joker</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="16">223</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="16">12:52</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:71%"></span></span><span class="dp-rtp-pct">71.<span data-d="16">22</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="17"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/joker/LeagueOfLegendsGW.png" alt="LeagueOfLegendsGW" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">Joker</span></span><span class="dp-info"><span class="dp-name">LeagueOfLegendsGW</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="17">408</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="17">31:37</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:95%"></span></span><span class="dp-rtp-pct">95.<span data-d="17">12</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="18"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/pg/PharaohRoyals.png" alt="Pharaoh Royals" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">PG Soft</span></span><span class="dp-info"><span class="dp-name">Pharaoh Royals</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="18">206</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="18">19:53</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:76%"></span></span><span class="dp-rtp-pct">76.<span data-d="18">09</span>%</span></span></span></button><button type="button" class="dp-row" data-idx="19"><span class="dp-thumb"><img src="https://games-api.cryteksoft.cloud/images/pg/PGS_Galactic%20Gems_1702651000.webp" alt="galactic-gems" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0"><span class="dp-tagp">PG Soft</span></span><span class="dp-info"><span class="dp-name">galactic-gems</span><span class="dp-meta"><i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><b data-c="19">513</b></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><b data-t="19">34:20</b></i></span><span class="dp-rtp"><span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:89%"></span></span><span class="dp-rtp-pct">89.<span data-d="19">19</span>%</span></span></span></button></div>
+
+            <div class="dg-toolbar-bottom">
+              <button type="button" class="dp-reroll" id="dp-reroll">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"></path><polyline points="21 3 21 9 15 9"></polyline></svg>
+                สุ่มใหม่
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- popup รับเครดิตสำเร็จ -->
+<div class="cpop-overlay" id="cpopOverlay">
+  <div class="cpop-card">
+    <div class="cpop-inner">
+      <div class="cpop-rays"></div>
+      <div class="cpop-confetti" id="cpopConfetti"></div>
+
+      <div class="cpop-topbar">
+        <div class="cpop-badge">
+          <span class="fb">UWIN</span>
+          <img alt="UWIN99TH" class="cpop-logo-img" onerror="this.style.display='none'; this.previousElementSibling.style.display='inline';" src="https://cdn-asia1.nexzcloud.lol/@zynlabs/8679824f-af17-4d7f-8a53-acfa14c5a203#fid=234154">
+        </div>
+        <button class="cpop-close" id="cpopClose" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="cpop-eyebrow">รับสิทธิ์สำเร็จ</div>
+      <div class="cpop-h1">ยินดีด้วย! คุณได้รับ</div>
+      <div class="cpop-amount">เครดิตฟรี</div>
+      <div class="cpop-amount big"><span data-credit="">100</span><i class="u"> บาท</i></div>
+
+      <div class="cpop-stats-row">
+        <div class="cpop-stat-chip"><span class="k">ทำยอด</span><span class="v" data-turnover="">600</span></div>
+        <div class="cpop-stat-chip"><span class="k">ถอนได้</span><span class="v" data-withdraw="">120</span></div>
+      </div>
+
+      <div class="cpop-sub">ระบบได้รับข้อมูลของคุณ<b>เรียบร้อยแล้ว</b><br>กำลังพาไปยัง LINE เพื่อรับเครดิตฟรีของคุณ</div>
+
+      <div class="cpop-chips">
+        <div class="cpop-chip"><div class="cpop-chip-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path></svg></div><span>อนุมัติไว</span></div>
+        <div class="cpop-chip"><div class="cpop-chip-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div><span>ปลอดภัย 100%</span></div>
+        <div class="cpop-chip"><div class="cpop-chip-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></div><span>ไม่มีขั้นต่ำ</span></div>
+        <div class="cpop-chip"><div class="cpop-chip-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><span>แจ้งอัตโนมัติ</span></div>
+      </div>
+
+      <div class="cpop-status" id="cpopStatus">
+        <span class="cpop-spin"></span>
+        <span>กำลังพาไปยัง LINE ใน <span class="cpop-count" id="cpopCount">3</span> วินาที</span>
+      </div>
+
+      <div class="cpop-manual" id="cpopManual">
+        <a href="https://urls1.pro/uw1x#" id="cpopManualLink" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          หากไม่เปิดอัตโนมัติ กดที่นี่
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- overlay เล่นเกมทดลอง -->
+<div id="dp-overlay">
+  <div class="dp-modal">
+    <div class="dp-bar">
+      <span class="dp-mtitle" id="dp-mtitle">ทดลองเล่น</span>
+      <span class="dp-credit" id="dp-credit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M14.5 9.5a3 3 0 1 0 0 5"></path></svg>
+        <span id="dp-credit-val">-</span>
+      </span>
+      <button type="button" class="dp-close" id="dp-close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+      </button>
+    </div>
+    <div class="dp-mstate" id="dp-mstate">
+      <svg class="dp-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-6.22-8.56"></path></svg>
+      <span>กำลังเข้าเกม...</span>
+    </div>
+    <iframe class="dp-frame" id="dp-frame" allow="autoplay; fullscreen"></iframe>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════
+   แก้ค่าที่ใช้บ่อยตรงนี้จุดเดียว
+═══════════════════════════════ */
+const CLAIM_LINE_URL = 'https://lin.ee/nUuB9mr';
+const CREDIT_AMOUNT   = 100;
+const TURNOVER_AMOUNT = 600;
+const WITHDRAW_LIMIT  = 120;
+const REDIRECT_DELAY  = 3;
+const LOGO_URL = 'https://cdn-asia1.nexzcloud.lol/@zynlabs/8679824f-af17-4d7f-8a53-acfa14c5a203#fid=234154';
+
+(function applyAmounts(){
+  const fmt = n => Number(n).toLocaleString('th-TH');
+  document.querySelectorAll('[data-credit]').forEach(el => el.textContent = fmt(CREDIT_AMOUNT));
+  document.querySelectorAll('[data-turnover]').forEach(el => { if (!el.closest('.cc-stats')) el.textContent = fmt(TURNOVER_AMOUNT); });
+  document.querySelectorAll('[data-withdraw]').forEach(el => { if (!el.closest('.cc-stats')) el.textContent = fmt(WITHDRAW_LIMIT); });
+})();
+
+/* ---------- นับเลขขึ้นตอนเปิดหน้า เฉพาะกล่องทำยอด/ถอนได้ ---------- */
+(function countUpStats(){
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUpEl(el, target){
+    if (reduceMotion){ el.textContent = Number(target).toLocaleString('th-TH'); return; }
+    const start = performance.now();
+    const duration = 900;
+    function tick(now){
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target).toLocaleString('th-TH');
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  document.querySelectorAll('.cc-stats [data-turnover]').forEach(el => countUpEl(el, TURNOVER_AMOUNT));
+  document.querySelectorAll('.cc-stats [data-withdraw]').forEach(el => countUpEl(el, WITHDRAW_LIMIT));
+})();
+
+(function applyLogo(){
+  document.querySelectorAll('.bw-logo-img, .cpop-logo-img').forEach(img => { img.src = LOGO_URL; });
+})();
+
+/* ---------- วอลล์ภาพเกม PG Soft เลื่อนพื้นหลัง (ใช้ภาพเกมจริง) ---------- */
+(function buildGameWalls(){
+  const PG_BASE = 'https://games-api.cryteksoft.cloud/images/pg/';
+  const PG_WALL = [
+    { n:'Majestic Empire',        u:'majestic-empire.jpg' },
+    { n:'Kraken Gold Rush',       u:'Kraken20Rush.webp' },
+    { n:'Pharaoh Royals',         u:'PharaohRoyals.png' },
+    { n:'Skylight Wonders',       u:'Skylight-Wonders.webp' },
+    { n:'Galaxy Miner',           u:'galexy-miner.png' },
+    { n:"Dragon's Treasure",      u:'dragons-treasure-quest.png' },
+    { n:'Diner Frenzy Spins',     u:'Frenzy-Spins.webp' },
+    { n:'Jack the Giant',         u:'jackthegiant-hunter.png' },
+    { n:'Fortune Snake',          u:'Fortune-Snake.jpg' },
+    { n:"Geisha's Revenge",       u:'Geishas-Revenge.jpg' },
+    { n:'Chocolate Deluxe',       u:'chocolate-deluxe.jpg' },
+    { n:'Yakuza Honor',           u:'Yakuza_Honor_img.jpg' },
+    { n:'Ganesha Fortune',        u:'PGS_Ganesha%20Fortune_1702651007.webp' },
+    { n:'Lucky Neko',             u:'PGS_Lucky%20Neko_1702651224.webp' },
+    { n:'Ganesha Gold',           u:'PGS_Ganesha%20Gold_1702651014.webp' },
+    { n:'Fortune Tiger',          u:'PGS_Fortune%20Tiger_1702650988.webp' },
+    { n:'Mahjong Ways',           u:'PGS_Mahjong%20Ways_1702651252.webp' },
+    { n:'Mahjong Ways 2',         u:'PGS_Mahjong%20Ways%202_1702651260.webp' },
+    { n:'Wild Bandito',           u:'PGS_Wild%20Bandito_1702651545.webp' },
+    { n:'Treasures of Aztec',     u:'PGS_Treasures%20of%20Aztec_1702651933.webp' },
+    { n:'Wild Coaster',           u:'PGS_Wild%20Coaster_1702651674.webp' },
+    { n:'Fortune Rabbit',         u:'PGS_Fortune%20Rabbit_1702650982.webp' },
+    { n:'Museum Mystery',         u:'Museum-Mystery.png' },
+    { n:'Three Crazy Piggies',    u:'Three-Crazy-Piggies.png' }
+  ];
+
+  function buildWall(container, cols, perColumn, poolSize){
+    if (!container) return;
+    const pool = PG_WALL.slice(0, poolSize || PG_WALL.length);
+    let html = '';
+    for (let c = 0; c < cols; c++){
+      const slice = [];
+      for (let i = 0; i < perColumn; i++) slice.push(pool[(c * perColumn + i) % pool.length]);
+      const imgs = slice.concat(slice).map(g =>
+        '<img src="' + PG_BASE + g.u + '" alt="' + g.n + '" loading="lazy" decoding="async" onerror="this.style.display=\'none\'">'
+      ).join('');
+      html += '<div class="gw-col">' + imgs + '</div>';
+    }
+    container.innerHTML = html;
+  }
+
+  // การ์ด (ccBgWall) โหลดก่อน เห็นทันทีตอนเข้าหน้ากรอกโค้ด ใช้ภาพชุดย่อยที่ intro ก็ใช้ทำให้แคชซ้ำกัน ไม่เพิ่มโหลด
+  buildWall(document.getElementById('ccBgWall'), 4, 8, 16);
+  buildWall(document.getElementById('bwIntroWall'), 5, 8, 24);
+})();
+
+/* ---------- สเต็ป 1: เล่นวิดีโอเปิดตัวเต็มจอครั้งเดียว แตะเพื่อข้ามได้ ---------- */
+(function bwIntro(){
+  const intro = document.getElementById('bwIntro');
+  if (!intro) return;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function dismiss(){
+    if (intro.classList.contains('hide')) return;
+    intro.classList.add('hide');
+    setTimeout(() => intro.remove(), 550);
+  }
+
+  if (reduceMotion) { dismiss(); return; }
+
+  intro.addEventListener('click', dismiss);
+  setTimeout(dismiss, 3600); // ต้องตรงกับ animation ของ .bw-intro-progress-fill (3.6s) ใน CSS
+})();
+
+/* ---------- code input ---------- */
+const codeInput = document.getElementById('ccCode');
+const btn = document.getElementById('ccBtn');
+const err = document.getElementById('ccErr');
+
+codeInput.addEventListener('input', function(){
+  err.textContent = '';
+  this.classList.remove('invalid');
+  let raw = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8);
+  this.value = raw.length > 4 ? raw.slice(0, 4) + '-' + raw.slice(4) : raw;
+  btn.disabled = this.value.trim().length === 0;
+});
+codeInput.addEventListener('keydown', function(e){
+  if (e.key === 'Enter' && !btn.disabled) btn.click();
+});
+
+btn.addEventListener('click', function(){
+  if (btn.disabled) return;
+  err.textContent = '';
+
+  const code = codeInput.value.trim();
+  if (!code) {
+    err.textContent = 'กรุณากรอกโค้ดก่อนกดยืนยัน';
+    codeInput.classList.add('invalid');
+    codeInput.focus();
+    return;
+  }
+  codeInput.value = '';
+  btn.disabled = true;
+
+  openPopup();
+  addFakeClaim(true);
+});
+
+/* ---------- popup + confetti + countdown then open LINE ---------- */
+const overlay = document.getElementById('cpopOverlay');
+const cpopClose = document.getElementById('cpopClose');
+const cpopStatus = document.getElementById('cpopStatus');
+const cpopCount = document.getElementById('cpopCount');
+const cpopManual = document.getElementById('cpopManual');
+const cpopManualLink = document.getElementById('cpopManualLink');
+const confettiWrap = document.getElementById('cpopConfetti');
+let countdownTimer = null;
+
+function burstConfetti(){
+  confettiWrap.innerHTML = '';
+  const colors = ['#ffd9ee','#ffc93c','#ffffff','#ff9bd0'];
+  for (let i = 0; i < 18; i++) {
+    const el = document.createElement('i');
+    const size = 5 + Math.random() * 5;
+    el.style.left = (Math.random() * 100) + '%';
+    el.style.width = size + 'px';
+    el.style.height = (size * (Math.random() < .5 ? 1 : 2.4)) + 'px';
+    el.style.background = colors[Math.floor(Math.random() * colors.length)];
+    el.style.animationDuration = (1.1 + Math.random() * 0.9) + 's';
+    el.style.animationDelay = (Math.random() * 0.4) + 's';
+    confettiWrap.appendChild(el);
+  }
+}
+
+function openPopup(){
+  cpopManualLink.href = CLAIM_LINE_URL;
+  cpopManual.classList.remove('show');
+  cpopStatus.style.display = 'flex';
+  overlay.classList.add('show');
+  burstConfetti();
+
+  let remaining = REDIRECT_DELAY;
+  cpopCount.textContent = remaining;
+  clearInterval(countdownTimer);
+  countdownTimer = setInterval(() => {
+    remaining -= 1;
+    if (remaining <= 0) {
+      clearInterval(countdownTimer);
+      const winRef = window.open(CLAIM_LINE_URL, '_blank');
+      const blocked = !winRef || winRef.closed || typeof winRef.closed === 'undefined';
+      if (blocked) {
+        cpopStatus.style.display = 'none';
+        cpopManual.classList.add('show');
+      }
+      return;
+    }
+    cpopCount.textContent = remaining;
+  }, 1000);
+}
+
+function closePopup(){
+  overlay.classList.remove('show');
+  clearInterval(countdownTimer);
+}
+cpopClose.addEventListener('click', closePopup);
+overlay.addEventListener('click', function(e){ if (e.target === overlay) closePopup(); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closePopup(); });
+
+/* ---------- fake recent claims feed (หยุดทำงานเมื่อแท็บถูกซ่อน) ---------- */
+const cfList = document.getElementById('cfList');
+const PFX = ['060','062','063','064','065','066','080','081','082','083','084','085','086','087','088','089','090','091','092','093','094','095','096','097','098','099'];
+const ACTS = ['กรอกโค้ดสำเร็จ'];
+const BANK_IMG_BASE = 'https://games-api.cryteksoft.cloud/images/banks/';
+const THAI_BANKS = [
+  { name:'กสิกรไทย',      colors:'#00a950,#017a3b', logo: BANK_IMG_BASE + 'kbank.webp' },
+  { name:'ไทยพาณิชย์',    colors:'#4e2e7f,#341f57', logo: BANK_IMG_BASE + 'scb.webp' },
+  { name:'กรุงไทย',       colors:'#1ba5e1,#0d7bb0', logo: BANK_IMG_BASE + 'ktb.webp' },
+  { name:'กรุงเทพ',       colors:'#1e4598,#132f6b', logo: BANK_IMG_BASE + 'bbl.webp' },
+  { name:'กรุงศรีอยุธยา', colors:'#fec43b,#e0951a', logo: BANK_IMG_BASE + 'bay.webp' },
+  { name:'ออมสิน',        colors:'#eb198d,#b1116a', logo: BANK_IMG_BASE + 'gsb.webp' },
+  { name:'ทหารไทยธนชาต',  colors:'#12a9e0,#0c6f96', logo: BANK_IMG_BASE + 'ttb.webp' },
+  { name:'ยูโอบี',         colors:'#003876,#00204a', logo: BANK_IMG_BASE + 'uob.webp' }
+];
+const BANK_ICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 21 8 3 8"/></svg>';
+window.bankImgError = function(img){
+  const parent = img.parentElement;
+  img.remove();
+  if (parent) parent.innerHTML = BANK_ICON;
+};
+const rP = () => PFX[Math.floor(Math.random()*PFX.length)]+'-XXX-'+(1000+Math.floor(Math.random()*9000));
+const rA = () => ACTS[Math.floor(Math.random()*ACTS.length)];
+const rBank = () => THAI_BANKS[Math.floor(Math.random()*THAI_BANKS.length)];
+const ago = s => s<60 ? s+' วิที่แล้ว' : Math.floor(s/60)<60 ? Math.floor(s/60)+' นาทีที่แล้ว' : Math.floor(s/3600)+' ชม.ที่แล้ว';
+
+let claims = [];
+[5, 22, 47, 88].forEach(t => claims.push({ p: rP(), bank: rBank(), a: rA(), at: Date.now() - t*1000 }));
+
+function renderClaims(isNew){
+  const now = Date.now();
+  cfList.innerHTML = claims.map(({p,bank,a,at}, i) => {
+    const s = Math.floor((now - at)/1000);
+    const n = isNew && i === 0;
+    return `<div class="cf-item${n?' new':''}"><div class="cf-av" style="background:linear-gradient(135deg,${bank.colors})"><img src="${bank.logo}" alt="${bank.name}" onerror="bankImgError(this)" /></div><div class="cf-i"><div class="cf-phone">${p}</div><div class="cf-act">${a} • ธ.${bank.name} • ${CREDIT_AMOUNT} บาท</div></div><div class="cf-r"><div class="cf-time">${ago(s)}</div><div class="cf-badge">สำเร็จ</div></div></div>`;
+  }).join('');
+}
+renderClaims(false);
+
+function addFakeClaim(isNew){
+  claims.unshift({ p: rP(), bank: rBank(), a: rA(), at: Date.now() });
+  if (claims.length > 4) claims.pop();
+  renderClaims(isNew);
+}
+
+(function loop(){
+  setTimeout(() => {
+    if (!document.hidden) addFakeClaim(true);
+    loop();
+  }, Math.random() < .7 ? 6000 + Math.random()*8000 : 20000 + Math.random()*25000);
+})();
+
+setInterval(() => {
+  if (document.hidden) return;
+  document.querySelectorAll('.cf-time').forEach((el, i) => {
+    if (claims[i]) el.textContent = ago(Math.floor((Date.now() - claims[i].at)/1000));
+  });
+}, 1000);
+</script>
+
+<script>
+/* ═══════════════════════════════
+   เกมทดลองเล่น: โหลดแบบ lazy — ยิง API ก็ต่อเมื่อผู้ใช้กดเปิดเท่านั้น
+═══════════════════════════════ */
+(function(){
+  const AGENT_BASE = 'https://web-api.cryteksoft.cloud';
+  const DEMO_ACCESS_KEY = 'e65e51d5a4d48594';
+
+  const PROVIDERS = [
+    { key:'PG',    label:'PG Soft',        game:'pg' },
+    { key:'JILI',  label:'JILI',           game:'jl' },
+    { key:'JOKER', label:'Joker',          game:'joker' },
+    { key:'PP',    label:'Pragmatic Play', game:'pp' }
+  ];
+  const PICK = 20;
+
+  const $ = id => document.getElementById(id);
+  const list = $('dp-list'), stateEl = $('dp-state'), tabsEl = $('dp-tabs'), skeletonEl = $('dpSkeleton');
+  const overlay = $('dp-overlay'), frame = $('dp-frame');
+  const mState = $('dp-mstate'), mTitle = $('dp-mtitle');
+  const credit = $('dp-credit'), creditVal = $('dp-credit-val');
+  const stGames = $('dp-st-games'), stProv = $('dp-st-prov'), stLive = $('dp-st-live');
+
+  let pool = [];
+  let live = [];
+  let activeKey = 'ALL';
+  let ticks = null;
+
+  const rnd = (a,b) => Math.floor(Math.random()*(b-a+1))+a;
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const fmtTimer = s => String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+  const fmtNum = n => Number(n).toLocaleString('en-US');
+
+  function shuffle(a){
+    const r = [...a];
+    for (let i = r.length-1; i > 0; i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [r[i], r[j]] = [r[j], r[i]];
+    }
+    return r;
+  }
+
+  function seedCounter(g){
+    let h = 0;
+    const str = String(g.code || g.name || '');
+    for (let i = 0; i < str.length; i++) h = (h*31 + str.charCodeAt(i)) >>> 0;
+    return 50 + (h % 451);
+  }
+
+  async function loadProvider(p){
+    try {
+      const res = await fetch(AGENT_BASE + '/api/demo/gamelist?provider=' + p.key, {
+        headers: { 'x-demo-key': DEMO_ACCESS_KEY }
+      });
+      if (!res.ok) return [];
+      const data = await res.json();
+      return (data.games || []).map(g => ({
+        code : g.game_code,
+        name : g.gameName || g.game_name || 'เกม',
+        img  : g.image_url || '',
+        game : p.game,
+        key  : p.key,
+        label: p.label
+      }));
+    } catch (e) { return []; }
+  }
+
+  function setState(msg, isErr){
+    stateEl.className = 'dp-state' + (isErr ? ' is-err' : '');
+    stateEl.innerHTML = (isErr
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>'
+      : '<svg class="dp-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-6.22-8.56"/></svg>')
+      + '<span>' + msg + '</span>';
+  }
+
+  function renderTabs(){
+    const items = [{ key:'ALL', label:'ทุกค่าย' }].concat(PROVIDERS.map(p => ({ key:p.key, label:p.label })));
+    tabsEl.innerHTML = items.map(it =>
+      '<button type="button" class="dp-tab'+(it.key===activeKey?' is-on':'')+'" data-key="'+it.key+'">'+esc(it.label)+'</button>'
+    ).join('');
+  }
+
+  function rowHtml(g){
+    return '<button type="button" class="dp-row" data-idx="'+g.idx+'">'
+      + '<span class="dp-thumb">'
+        + '<img src="'+esc(g.img)+'" alt="'+esc(g.name)+'" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0">'
+        + '<span class="dp-tagp">'+esc(g.label)+'</span>'
+      + '</span>'
+      + '<span class="dp-info">'
+        + '<span class="dp-name">'+esc(g.name)+'</span>'
+        + '<span class="dp-meta">'
+          + '<i class="dp-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><b data-c="'+g.idx+'">'+g.counter+'</b></i>'
+          + '<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><b data-t="'+g.idx+'">'+fmtTimer(g.timer)+'</b></i>'
+        + '</span>'
+        + '<span class="dp-rtp">'
+          + '<span class="dp-rtp-track"><span class="dp-rtp-fill" style="display:block;width:'+g.rtp+'%"></span></span>'
+          + '<span class="dp-rtp-pct">'+g.rtp+'.<span data-d="'+g.idx+'">'+String(g.dec).padStart(2,'0')+'</span>%</span>'
+        + '</span>'
+      + '</span>'
+      + '</button>';
+  }
+
+  function render(){
+    skeletonEl.classList.add('is-hide');
+    const src = activeKey === 'ALL' ? pool : pool.filter(g => g.key === activeKey);
+
+    if (!src.length){
+      list.innerHTML = '';
+      setState('ยังไม่มีเกมของค่ายนี้ ลองเลือกค่ายอื่นดู', true);
+      stateEl.classList.remove('is-hide');
+      return;
+    }
+
+    live = shuffle(src).slice(0, PICK).map((g, i) => Object.assign({}, g, {
+      idx    : i,
+      timer  : rnd(300, 3600),
+      rtp    : rnd(70, 97),
+      dec    : rnd(0, 99),
+      counter: seedCounter(g)
+    }));
+
+    list.innerHTML = live.map(rowHtml).join('');
+    list.scrollTop = 0;
+    stateEl.classList.add('is-hide');
+    updateStats();
+    startTicks();
+  }
+
+  function updateStats(){
+    stGames.innerHTML = fmtNum(pool.length) + '<small>เกม</small>';
+    stProv.innerHTML  = PROVIDERS.length + '<small>ค่าย</small>';
+    const sum = live.reduce((n, g) => n + g.counter, 0);
+    stLive.innerHTML  = fmtNum(sum) + '<small>คน</small>';
+  }
+
+  function startTicks(){
+    if (ticks) ticks.forEach(clearInterval);
+    const set = (attr, idx, val) => {
+      const el = list.querySelector('[data-'+attr+'="'+idx+'"]');
+      if (el) el.textContent = val;
+    };
+    ticks = [
+      setInterval(() => {
+        if (document.hidden) return;
+        live.forEach(g => {
+          g.timer = g.timer > 0 ? g.timer - 1 : rnd(300, 3600);
+          set('t', g.idx, fmtTimer(g.timer));
+        });
+      }, 1000),
+      setInterval(() => {
+        if (document.hidden) return;
+        live.forEach(g => {
+          g.dec = rnd(0, 99);
+          set('d', g.idx, String(g.dec).padStart(2,'0'));
+        });
+      }, 3000),
+      setInterval(() => {
+        if (document.hidden) return;
+        live.forEach(g => {
+          g.counter = Math.max(10, g.counter + rnd(-15, 20));
+          set('c', g.idx, g.counter);
+        });
+        updateStats();
+      }, 30000)
+    ];
+  }
+
+  async function init(){
+    skeletonEl.classList.remove('is-hide');
+    stateEl.classList.add('is-hide');
+    list.innerHTML = '';
+    renderTabs();
+
+    const lists = await Promise.all(PROVIDERS.map(loadProvider));
+    pool = lists.flat().filter(g => g.code);
+
+    if (!pool.length){
+      skeletonEl.classList.add('is-hide');
+      setState('โหลดรายการเกมไม่สำเร็จ กดสุ่มใหม่เพื่อลองอีกครั้ง', true);
+      stateEl.classList.remove('is-hide');
+      return;
+    }
+    render();
+  }
+
+  async function playGame(g){
+    mTitle.textContent = g.name + ' · ' + g.label;
+    frame.style.display = 'none';
+    credit.classList.remove('is-show');
+    mState.classList.remove('is-hide');
+    mState.innerHTML = '<svg class="dp-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-6.22-8.56"/></svg><span>กำลังเข้าเกม...</span>';
+    overlay.classList.add('is-show');
+    document.body.style.overflow = 'hidden';
+
+    try {
+      const res = await fetch(AGENT_BASE + '/api/demo/play', {
+        method : 'POST',
+        headers: { 'Content-Type':'application/json', 'x-demo-key': DEMO_ACCESS_KEY },
+        body   : JSON.stringify({ gameCode: String(g.code), game: g.game })
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || '');
+
+      frame.src = data.url;
+      frame.style.display = 'block';
+      mState.classList.add('is-hide');
+      creditVal.textContent = data.credit;
+      credit.classList.add('is-show');
+    } catch (e) {
+      mState.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg><span>เข้าเกมไม่สำเร็จ ลองใหม่อีกครั้ง</span>';
+    }
+  }
+
+  function closeGame(){
+    overlay.classList.remove('is-show');
+    frame.src = 'about:blank';
+    frame.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  list.addEventListener('click', e => {
+    const row = e.target.closest('.dp-row');
+    if (!row) return;
+    const g = live[Number(row.dataset.idx)];
+    if (g) playGame(g);
+  });
+
+  tabsEl.addEventListener('click', e => {
+    const tab = e.target.closest('.dp-tab');
+    if (!tab || tab.dataset.key === activeKey) return;
+    activeKey = tab.dataset.key;
+    renderTabs();
+    if (pool.length) render();
+  });
+
+  $('dp-close').onclick = closeGame;
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeGame(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-show')) closeGame();
+  });
+  $('dp-reroll').onclick = () => { pool.length ? render() : init(); };
+
+  /* ---------- แสดงเกมทดลองเล่นทันที ไม่ต้องกดเปิด ---------- */
+  init();
+})();
+</script><style>*{-webkit-user-select:none;user-select:none;}</style><script>document.addEventListener('contextmenu',function(e){e.preventDefault();});document.addEventListener('dragstart',function(e){e.preventDefault();});document.addEventListener('keydown',function(e){var k=(e.key||'').toLowerCase();if(e.key==='F12'||((e.ctrlKey||e.metaKey)&&e.shiftKey&&(k==='i'||k==='j'||k==='c'))||((e.ctrlKey||e.metaKey)&&(k==='u'||k==='s'))){e.preventDefault();}});</script></body></html>
